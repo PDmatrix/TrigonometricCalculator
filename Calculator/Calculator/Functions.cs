@@ -29,15 +29,15 @@ namespace Calculator
             return double.Epsilon; ;
         }
 
-        public double Secons(double rad)
+        public double Secans(double rad)
         {
-            MessageBox.Show("Secons");
+            MessageBox.Show("Secans");
             return double.Epsilon; ;
         }
 
-        public double Cosecons(double rad)
+        public double Cosecans(double rad)
         {
-            MessageBox.Show("Cosecons");
+            MessageBox.Show("Cosecans");
             return double.Epsilon; ;
         }
 

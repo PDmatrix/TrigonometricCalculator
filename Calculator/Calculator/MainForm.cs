@@ -1,11 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Calculator
 {
     public partial class MainForm : Form
     {
+        private readonly List<Dictionary<object, string>> _functionList = new List<Dictionary<object, string>>
+        {
+            new Dictionary<object, string>
+            {
+                {"Синус", "Sinus"},
+                {"Косинус", "Cosinus"},
+                {"Тангенс", "Tangens"},
+                {"Котангенс", "Cotangens"},
+                {"Секанс", "Secans"},
+                {"Косеканс", "Cosecans"},
+            },
+            new Dictionary<object, string>
+            {
+                {"Арксинус", "Arcsinus"},
+                {"Арккосинус", "Arccosinus"},
+                {"Арктангенс", "Arctangens"},
+                {"Арккотангенс", "Arccotangens"},
+            },
+            new Dictionary<object, string>
+            {
+                {"Гиперболический синус", "Sinush"},
+                {"Гиперболический косинус", "Cosinush"},
+                {"Гиперболический тангенс", "Tangensh"},
+                {"Гиперболический котангенс", "Cotangensh"},
+            },
+            new Dictionary<object, string>
+            {
+                {"Ареасинус", "Areasinus"},
+                {"Ареакосинус", "Areacosinus"},
+                {"Ареатангенс", "Areatangens"},
+                {"Ареакотангенс", "Areacotangens"},
+            },
+        };
+
         public MainForm()
         {
             InitializeComponent();
@@ -13,46 +48,16 @@ namespace Calculator
 
         private void FunctionGroupCmBx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var functionList = new List<List<object>>
-            {
-                new List<object>
-                {
-                    "Синус",
-                    "Косинус",
-                    "Тангенс",
-                    "Котангенс",
-                    "Секанс",
-                    "Косеканс"
-                },
-                new List<object>
-                {
-                    "Арксинус",
-                    "Арккосинус",
-                    "Арктангенс",
-                    "Арккотангенс"
-                },
-                new List<object>
-                {
-                    "Гиперболический синус",
-                    "Гиперболический косинус",
-                    "Гиперболический тангенс",
-                    "Гиперболический котангенс",
-                },
-                new List<object>
-                {
-                    "Ареасинус",
-                    "Ареакосинус",
-                    "Ареатангенс",
-                    "Ареакотангенс",
-                },
-            };
             FunctionList.Items.Clear();
-            FunctionList.Items.AddRange(functionList[FunctionGroupCmBx.SelectedIndex].ToArray());
+            FunctionList.Items.AddRange(_functionList[FunctionGroupCmBx.SelectedIndex].Keys.ToArray());
         }
 
         private void CalculateBtn_Click(object sender, EventArgs e)
         {
+            var index = FunctionGroupCmBx.SelectedIndex == -1 ? 0 : FunctionGroupCmBx.SelectedIndex;
 
+            MessageBox.Show(_functionList[index].Values
+                .ElementAt(FunctionList.SelectedIndex));
         }
     }
 }
