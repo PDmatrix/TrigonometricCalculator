@@ -1,116 +1,115 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Calculator
 {
     public class Functions
     {
-        public double Sinus(double rad)
+        public static double Sinus(double rad)
         {
             MessageBox.Show("Sinus");
-            return double.Epsilon;;
+            return double.Epsilon;
         }
 
-        public double Cosinus(double rad)
+        public static double Cosinus(double rad)
         {
             MessageBox.Show("Cosinus");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Tangens(double rad)
+        public static double Tangens(double rad)
         {
             MessageBox.Show("Tangens");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Cotangens(double rad)
+        public static double Cotangens(double rad)
         {
             MessageBox.Show("Cotangens");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Secans(double rad)
+        public static double Secans(double rad)
         {
             MessageBox.Show("Secans");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Cosecans(double rad)
+        public static double Cosecans(double rad)
         {
             MessageBox.Show("Cosecans");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Arcsinus(double rad)
+        public static double Arcsinus(double rad)
         {
             MessageBox.Show("Arcsinus");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Arccosinus(double rad)
+        public static double Arccosinus(double rad)
         {
             MessageBox.Show("Arccosinus");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Arctangens(double rad)
+        public static double Arctangens(double rad)
         {
             MessageBox.Show("Arctangens");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Arccotangens(double rad)
+        public static double Arccotangens(double rad)
         {
             MessageBox.Show("Arccotangens");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Sinush(double rad)
+        public static double Sinush(double rad)
         {
             MessageBox.Show("Sinush");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Cosinush(double rad)
+        public static double Cosinush(double rad)
         {
             MessageBox.Show("Cosinush");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Tangensh(double rad)
+        public static double Tangensh(double rad)
         {
             MessageBox.Show("Tangensh");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Cotangensh(double rad)
+        public static double Cotangensh(double rad)
         {
             MessageBox.Show("Cotangensh");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Areasinus(double rad)
+        public static double Areasinus(double rad)
         {
             MessageBox.Show("Areasinus");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Areacosinus(double rad)
+        public static double Areacosinus(double rad)
         {
             MessageBox.Show("Areacosinus");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Areatangens(double rad)
+        public static double Areatangens(double rad)
         {
             MessageBox.Show("Areatangens");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
 
-        public double Areacotangens(double rad)
+        public static double Areacotangens(double rad)
         {
             MessageBox.Show("Areacotangens");
-            return double.Epsilon; ;
+            return double.Epsilon;
         }
     }
 }
