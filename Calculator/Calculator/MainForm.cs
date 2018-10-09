@@ -54,10 +54,25 @@ namespace Calculator
 
         private void CalculateBtn_Click(object sender, EventArgs e)
         {
+            if (FunctionList.SelectedIndex == -1)
+            {
+                MessageBox.Show(@"Пожалуйста, выберите функцию для вычисления", 
+                    @"Ошибка", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            //var valueToPass = MathConverter.ConvertTo
+
             var index = FunctionGroupCmBx.SelectedIndex == -1 ? 0 : FunctionGroupCmBx.SelectedIndex;
 
-            MessageBox.Show(_functionList[index].Values
+            var function = typeof(Functions)
+                .GetMethod(_functionList[index].Values
                 .ElementAt(FunctionList.SelectedIndex));
+
+
+            function?.Invoke(typeof(Functions), new object[] { double.Epsilon });
         }
     }
 }

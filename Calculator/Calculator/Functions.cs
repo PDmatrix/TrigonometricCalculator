@@ -1,25 +1,23 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Calculator
 {
-    public class Functions
+    public static class Functions
     {
         public static double Sinus(double rad)
         {
-            MessageBox.Show("Sinus");
-            return double.Epsilon;
+            return Math.Sin(rad);
         }
 
         public static double Cosinus(double rad)
         {
-            MessageBox.Show("Cosinus");
-            return double.Epsilon;
+            return Math.Cos(rad);
         }
 
         public static double Tangens(double rad)
         {
-            MessageBox.Show("Tangens");
-            return double.Epsilon;
+            return Math.Tan(rad);
         }
 
         public static double Cotangens(double rad)
@@ -48,6 +46,7 @@ namespace Calculator
 
         public static double Arccosinus(double rad)
         {
+            
             MessageBox.Show("Arccosinus");
             return double.Epsilon;
         }
