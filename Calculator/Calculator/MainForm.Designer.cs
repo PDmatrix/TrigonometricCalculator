@@ -34,24 +34,25 @@
             this.FunctionGroupCmBx = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.isDegreeIn = new System.Windows.Forms.RadioButton();
+            this.isRadianIn = new System.Windows.Forms.RadioButton();
+            this.isGradIn = new System.Windows.Forms.RadioButton();
             this.FunctionList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.isDegreeOut = new System.Windows.Forms.RadioButton();
+            this.isRadianOut = new System.Windows.Forms.RadioButton();
+            this.isGradOut = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // InputTxBx
             // 
+            this.InputTxBx.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InputTxBx.Location = new System.Drawing.Point(12, 12);
             this.InputTxBx.Name = "InputTxBx";
-            this.InputTxBx.Size = new System.Drawing.Size(548, 20);
+            this.InputTxBx.Size = new System.Drawing.Size(548, 26);
             this.InputTxBx.TabIndex = 0;
             this.InputTxBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -66,6 +67,7 @@
             this.ClearBtn.TabIndex = 1;
             this.ClearBtn.Text = "Очистить";
             this.ClearBtn.UseVisualStyleBackColor = false;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // CalculateBtn
             // 
@@ -116,40 +118,40 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Единица измерения выходных данных";
             // 
-            // radioButton1
+            // isDegreeIn
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(88, 22);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Градусы";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.isDegreeIn.AutoSize = true;
+            this.isDegreeIn.Checked = true;
+            this.isDegreeIn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.isDegreeIn.Location = new System.Drawing.Point(3, 3);
+            this.isDegreeIn.Name = "isDegreeIn";
+            this.isDegreeIn.Size = new System.Drawing.Size(88, 22);
+            this.isDegreeIn.TabIndex = 7;
+            this.isDegreeIn.TabStop = true;
+            this.isDegreeIn.Text = "Градусы";
+            this.isDegreeIn.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // isRadianIn
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton2.Location = new System.Drawing.Point(97, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(91, 22);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.Text = "Радианы";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.isRadianIn.AutoSize = true;
+            this.isRadianIn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.isRadianIn.Location = new System.Drawing.Point(97, 3);
+            this.isRadianIn.Name = "isRadianIn";
+            this.isRadianIn.Size = new System.Drawing.Size(91, 22);
+            this.isRadianIn.TabIndex = 8;
+            this.isRadianIn.Text = "Радианы";
+            this.isRadianIn.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // isGradIn
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton3.Location = new System.Drawing.Point(198, 3);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(73, 22);
-            this.radioButton3.TabIndex = 9;
-            this.radioButton3.Text = "Грады";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.isGradIn.AutoSize = true;
+            this.isGradIn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.isGradIn.Location = new System.Drawing.Point(198, 3);
+            this.isGradIn.Name = "isGradIn";
+            this.isGradIn.Size = new System.Drawing.Size(73, 22);
+            this.isGradIn.TabIndex = 9;
+            this.isGradIn.Text = "Грады";
+            this.isGradIn.UseVisualStyleBackColor = true;
             // 
             // FunctionList
             // 
@@ -170,9 +172,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton3);
+            this.panel1.Controls.Add(this.isDegreeIn);
+            this.panel1.Controls.Add(this.isRadianIn);
+            this.panel1.Controls.Add(this.isGradIn);
             this.panel1.Location = new System.Drawing.Point(277, 70);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 30);
@@ -180,48 +182,48 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.radioButton4);
-            this.panel2.Controls.Add(this.radioButton5);
-            this.panel2.Controls.Add(this.radioButton6);
+            this.panel2.Controls.Add(this.isDegreeOut);
+            this.panel2.Controls.Add(this.isRadianOut);
+            this.panel2.Controls.Add(this.isGradOut);
             this.panel2.Location = new System.Drawing.Point(277, 135);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(283, 33);
             this.panel2.TabIndex = 15;
             // 
-            // radioButton4
+            // isDegreeOut
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton4.Location = new System.Drawing.Point(3, 3);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(88, 22);
-            this.radioButton4.TabIndex = 7;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Градусы";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.isDegreeOut.AutoSize = true;
+            this.isDegreeOut.Checked = true;
+            this.isDegreeOut.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.isDegreeOut.Location = new System.Drawing.Point(3, 3);
+            this.isDegreeOut.Name = "isDegreeOut";
+            this.isDegreeOut.Size = new System.Drawing.Size(88, 22);
+            this.isDegreeOut.TabIndex = 7;
+            this.isDegreeOut.TabStop = true;
+            this.isDegreeOut.Text = "Градусы";
+            this.isDegreeOut.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // isRadianOut
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton5.Location = new System.Drawing.Point(97, 3);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(91, 22);
-            this.radioButton5.TabIndex = 8;
-            this.radioButton5.Text = "Радианы";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.isRadianOut.AutoSize = true;
+            this.isRadianOut.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.isRadianOut.Location = new System.Drawing.Point(97, 3);
+            this.isRadianOut.Name = "isRadianOut";
+            this.isRadianOut.Size = new System.Drawing.Size(91, 22);
+            this.isRadianOut.TabIndex = 8;
+            this.isRadianOut.Text = "Радианы";
+            this.isRadianOut.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // isGradOut
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton6.Location = new System.Drawing.Point(198, 3);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(73, 22);
-            this.radioButton6.TabIndex = 9;
-            this.radioButton6.Text = "Грады";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.isGradOut.AutoSize = true;
+            this.isGradOut.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.isGradOut.Location = new System.Drawing.Point(198, 3);
+            this.isGradOut.Name = "isGradOut";
+            this.isGradOut.Size = new System.Drawing.Size(73, 22);
+            this.isGradOut.TabIndex = 9;
+            this.isGradOut.Text = "Грады";
+            this.isGradOut.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -256,15 +258,15 @@
         private System.Windows.Forms.ComboBox FunctionGroupCmBx;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton isDegreeIn;
+        private System.Windows.Forms.RadioButton isRadianIn;
+        private System.Windows.Forms.RadioButton isGradIn;
         private System.Windows.Forms.ListBox FunctionList;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton isDegreeOut;
+        private System.Windows.Forms.RadioButton isRadianOut;
+        private System.Windows.Forms.RadioButton isGradOut;
     }
 }
 

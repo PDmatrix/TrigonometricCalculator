@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -52,6 +53,66 @@ namespace Calculator
             FunctionList.Items.AddRange(_functionList[FunctionGroupCmBx.SelectedIndex].Keys.ToArray());
         }
 
+        private static IEnumerable<int> SplitVal(string val)
+        {
+            return val.Split(new[] { "\'\'" }, StringSplitOptions.None)
+                .SelectMany(r => r.Split('\''))
+                .Select(r => Convert.ToInt32(r))
+                .ToArray();
+        }
+
+        private double GetInputRadianValue()
+        {
+            if (isDegreeIn.Checked)
+            {
+                return MathConverter.DegreeToRadian(SplitVal(InputTxBx.Text));
+            }
+
+            if (isGradIn.Checked)
+            {
+                return MathConverter.GradToRadian(SplitVal(InputTxBx.Text));
+            }
+
+            return Convert.ToDouble(InputTxBx.Text);
+        }
+
+        private static string DegreeStringify(double value)
+        {
+            var degree = (int) value;
+            var minuteDouble = (value - Math.Truncate(value)) * 60;
+            var minute = (int) minuteDouble;
+            var secondDouble = (minuteDouble - Math.Truncate(minuteDouble)) * 60;
+            var second = (int) secondDouble;
+            return $@"{degree}'{minute}''{second}";
+        }
+
+        private static string GradStringify(double value)
+        {
+            var degree = (int)value;
+            var minuteDouble = (value - Math.Truncate(value)) * 100;
+            var minute = (int)minuteDouble;
+            var secondDouble = (minuteDouble - Math.Truncate(minuteDouble)) * 100;
+            var second = (int)secondDouble;
+            return $@"{degree}'{minute}''{second}";
+        }
+
+        private string SetOutputValue(double radianValue)
+        {
+            if (isDegreeOut.Checked)
+            {
+                var radianToDegreeValue = MathConverter.RadianToDegree(radianValue);
+                return DegreeStringify(radianToDegreeValue);
+            }
+
+            if (isGradOut.Checked)
+            {
+                var radianToDegreeValue = MathConverter.RadianToGrad(radianValue);
+                return GradStringify(radianToDegreeValue);
+            }
+
+            return radianValue.ToString(CultureInfo.CurrentCulture);
+        }
+
         private void CalculateBtn_Click(object sender, EventArgs e)
         {
             if (FunctionList.SelectedIndex == -1)
@@ -63,16 +124,21 @@ namespace Calculator
                 return;
             }
 
-            //var valueToPass = MathConverter.ConvertTo
-
             var index = FunctionGroupCmBx.SelectedIndex == -1 ? 0 : FunctionGroupCmBx.SelectedIndex;
 
             var function = typeof(Functions)
                 .GetMethod(_functionList[index].Values
                 .ElementAt(FunctionList.SelectedIndex));
 
+            var inputRadianValue = GetInputRadianValue();
+            var outputRadianValue = Convert.ToDouble(function?.Invoke(typeof(Functions), new object[] { inputRadianValue }));
 
-            function?.Invoke(typeof(Functions), new object[] { double.Epsilon });
+            InputTxBx.Text = SetOutputValue(outputRadianValue);
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            InputTxBx.Clear();
         }
     }
 }
