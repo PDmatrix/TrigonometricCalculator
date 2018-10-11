@@ -6,7 +6,7 @@ namespace Calculator.Tests
     {
         public static bool IsApproximatelyEqualTo(this double initialValue, double value)
         {
-            return IsApproximatelyEqualTo(initialValue, value, 0.00001);
+            return IsApproximatelyEqualTo(initialValue, value, 0.001);
         }
 
         public static bool IsApproximatelyEqualTo(this double initialValue, double value, double maximumDifferenceAllowed)

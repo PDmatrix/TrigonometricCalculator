@@ -22,93 +22,78 @@ namespace Calculator
 
         public static double Cotangens(double rad)
         {
-            MessageBox.Show("Cotangens");
-            return double.Epsilon;
+            return 1 / Tangens(rad);
         }
 
         public static double Secans(double rad)
         {
-            MessageBox.Show("Secans");
-            return double.Epsilon;
+            return 1 / Math.Cos(rad);
         }
 
         public static double Cosecans(double rad)
         {
-            MessageBox.Show("Cosecans");
-            return double.Epsilon;
+            return 1 / Math.Sin(rad);
         }
 
         public static double Arcsinus(double rad)
         {
-            MessageBox.Show("Arcsinus");
-            return double.Epsilon;
+            return Math.Asin(Sinus(rad));
         }
 
         public static double Arccosinus(double rad)
         {
-            
-            MessageBox.Show("Arccosinus");
-            return double.Epsilon;
+
+            return Math.Acos(Cosinus(rad));
         }
 
         public static double Arctangens(double rad)
         {
-            MessageBox.Show("Arctangens");
-            return double.Epsilon;
+            return Math.Atan(Tangens(rad));
         }
 
         public static double Arccotangens(double rad)
         {
-            MessageBox.Show("Arccotangens");
-            return double.Epsilon;
+            return (Math.PI / 2) - Arctangens(rad);
         }
 
         public static double Sinush(double rad)
         {
-            MessageBox.Show("Sinush");
-            return double.Epsilon;
+            return Math.Sinh(rad);
         }
 
         public static double Cosinush(double rad)
         {
-            MessageBox.Show("Cosinush");
-            return double.Epsilon;
+            return Math.Cosh(rad);
         }
 
         public static double Tangensh(double rad)
         {
-            MessageBox.Show("Tangensh");
-            return double.Epsilon;
+            return Math.Tanh(rad);
         }
 
         public static double Cotangensh(double rad)
         {
-            MessageBox.Show("Cotangensh");
-            return double.Epsilon;
+            return 1 / Tangens(rad);
         }
 
         public static double Areasinus(double rad)
         {
-            MessageBox.Show("Areasinus");
-            return double.Epsilon;
+            return Math.Log(rad + Math.Pow(rad * rad + 1, 2));
         }
 
         public static double Areacosinus(double rad)
         {
-            MessageBox.Show("Areacosinus");
-            return double.Epsilon;
+            return Math.Log(rad + Math.Pow(rad * rad - 1, 2));
         }
 
         public static double Areatangens(double rad)
         {
-            MessageBox.Show("Areatangens");
-            return double.Epsilon;
+            return Math.Log((1 + rad) / (1 - rad)) / 2;
         }
 
         public static double Areacotangens(double rad)
         {
-            MessageBox.Show("Areacotangens");
-            return double.Epsilon;
+            return Math.Log((rad + 1) / (rad - 1)) / 2;
         }
     }
 }
