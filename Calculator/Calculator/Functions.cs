@@ -152,12 +152,12 @@ namespace Calculator
 
         public static double Areasinus(double x)
         {
-            return Math.Log(x + Math.Pow(x * x + 1, 2));
+            return Math.Log(x + Math.Sqrt(x * x + 1, 2));
         }
 
         public static double Areacosinus(double x)
         {
-            return Math.Log(x + Math.Pow(x * x - 1, 2));
+            return Math.Log(x + Math.Sqrt(x * x - 1, 2));
         }
 
         public static double Areatangens(double x)
