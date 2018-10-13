@@ -50,6 +50,21 @@ namespace Calculator
         private void FunctionGroupCmBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             FunctionList.Items.Clear();
+            switch (FunctionGroupCmBx.SelectedIndex)
+            {
+                case 0:
+                    inputPanel.Visible = true;
+                    outputPanel.Visible = false;
+                    break;
+                case 1:
+                    inputPanel.Visible = false;
+                    outputPanel.Visible = true;
+                    break;
+                default:
+                    inputPanel.Visible = false;
+                    outputPanel.Visible = false;
+                    break;
+            }
             FunctionList.Items.AddRange(_functionList[FunctionGroupCmBx.SelectedIndex].Keys.ToArray());
         }
 
@@ -63,6 +78,11 @@ namespace Calculator
 
         private double GetInputRadianValue()
         {
+            if (!inputPanel.Visible)
+            {
+                return Convert.ToDouble(InputTxBx.Text);
+            }
+
             if (isDegreeIn.Checked)
             {
                 return MathConverter.DegreeToRadian(SplitVal(InputTxBx.Text));
@@ -98,6 +118,11 @@ namespace Calculator
 
         private string SetOutputValue(double radianValue)
         {
+            if (!outputPanel.Visible)
+            {
+                return radianValue.ToString(CultureInfo.CurrentCulture);
+            }
+
             if (isDegreeOut.Checked)
             {
                 var radianToDegreeValue = MathConverter.RadianToDegree(radianValue);
@@ -139,6 +164,11 @@ namespace Calculator
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             InputTxBx.Clear();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

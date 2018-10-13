@@ -5,95 +5,169 @@ namespace Calculator
 {
     public static class Functions
     {
-        public static double Sinus(double rad)
+        private static void Error()
         {
-            return Math.Sin(rad);
+            MessageBox.Show(@"Введенно некоректное значение", @"Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static double Cosinus(double rad)
+        private static bool InRange(this double value, double first, double second)
         {
-            return Math.Cos(rad);
+            return first < value && value < second;
         }
 
-        public static double Tangens(double rad)
+        private static bool InRangeEq(this double value, double first, double second)
         {
-            return Math.Tan(rad);
+            return first <= value && value <= second;
         }
 
-        public static double Cotangens(double rad)
+        public static double Sinus(double x)
         {
-            return 1 / Tangens(rad);
+            return Math.Sin(x);
         }
 
-        public static double Secans(double rad)
+        public static double Cosinus(double x)
         {
-            return 1 / Math.Cos(rad);
+            return Math.Cos(x);
         }
 
-        public static double Cosecans(double rad)
+        public static double Tangens(double x)
         {
-            return 1 / Math.Sin(rad);
+            if (Math.Cos(x).IsApproximatelyEqualTo(0, 0.0001))
+            {
+                Error();
+                return double.NaN;
+            }
+
+            return Math.Tan(x);
         }
 
-        public static double Arcsinus(double rad)
+        public static double Cotangens(double x)
         {
-            return Math.Asin(Sinus(rad));
+            if (Math.Tan(x).IsApproximatelyEqualTo(0, 0.0001))
+            {
+                Error();
+                return double.NaN;
+            }
+
+            return 1 / Math.Tan(x);
         }
 
-        public static double Arccosinus(double rad)
+        public static double Secans(double x)
         {
+            if (Math.Cos(x).IsApproximatelyEqualTo(0, 0.0001))
+            {
+                Error();
+                return double.NaN;
+            }
 
-            return Math.Acos(Cosinus(rad));
+            return 1 / Math.Cos(x);
         }
 
-        public static double Arctangens(double rad)
+        public static double Cosecans(double x)
         {
-            return Math.Atan(Tangens(rad));
+            if (Math.Sin(x).IsApproximatelyEqualTo(0, 0.0001))
+            {
+                Error();
+                return double.NaN;
+            }
+
+            return 1 / Math.Sin(x);
         }
 
-        public static double Arccotangens(double rad)
+        public static double Arcsinus(double x)
         {
-            return (Math.PI / 2) - Arctangens(rad);
+            if (!x.InRangeEq(-1, 1))
+            {
+                Error();
+                return double.NaN;
+            }
+
+            return Math.Asin(x);
         }
 
-        public static double Sinush(double rad)
+        public static double Arccosinus(double x)
         {
-            return Math.Sinh(rad);
+            if (!x.InRangeEq(-1, 1))
+            {
+                Error();
+                return double.NaN;
+            }
+
+            return Math.Acos(x);
         }
 
-        public static double Cosinush(double rad)
+        public static double Arctangens(double x)
         {
-            return Math.Cosh(rad);
+            /*if (!x.InRange(-(Math.PI / 2), Math.PI / 2))
+            {
+                Error();
+                return double.NaN;
+            }*/
+
+            return Math.Atan(x);
         }
 
-        public static double Tangensh(double rad)
+        public static double Arccotangens(double x)
         {
-            return Math.Tanh(rad);
+            /*if (!x.InRange(0, Math.PI))
+            {
+                Error();
+                return double.NaN;
+            }*/
+
+            return Math.PI / 2 - Arctangens(x);
         }
 
-        public static double Cotangensh(double rad)
+        public static double Sinush(double x)
         {
-            return 1 / Tangens(rad);
+            return Math.Sinh(x);
         }
 
-        public static double Areasinus(double rad)
+        public static double Cosinush(double x)
         {
-            return Math.Log(rad + Math.Pow(rad * rad + 1, 2));
+            return Math.Cosh(x);
         }
 
-        public static double Areacosinus(double rad)
+        public static double Tangensh(double x)
         {
-            return Math.Log(rad + Math.Pow(rad * rad - 1, 2));
+            if (Math.Cosh(x).IsApproximatelyEqualTo(0, 0.0001))
+            {
+                Error();
+                return double.NaN;
+            }
+
+            return Math.Tanh(x);
         }
 
-        public static double Areatangens(double rad)
+        public static double Cotangensh(double x)
         {
-            return Math.Log((1 + rad) / (1 - rad)) / 2;
+            if (Math.Tanh(x).IsApproximatelyEqualTo(0, 0.0001))
+            {
+                Error();
+                return double.NaN;
+            }
+
+            return 1 / Math.Tanh(x);
         }
 
-        public static double Areacotangens(double rad)
+        public static double Areasinus(double x)
         {
-            return Math.Log((rad + 1) / (rad - 1)) / 2;
+            return Math.Log(x + Math.Pow(x * x + 1, 2));
+        }
+
+        public static double Areacosinus(double x)
+        {
+            return Math.Log(x + Math.Pow(x * x - 1, 2));
+        }
+
+        public static double Areatangens(double x)
+        {
+            return Math.Log((1 + x) / (1 - x)) / 2;
+        }
+
+        public static double Areacotangens(double x)
+        {
+            return Math.Log((x + 1) / (x - 1)) / 2;
         }
     }
 }

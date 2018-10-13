@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoubleExtensions.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

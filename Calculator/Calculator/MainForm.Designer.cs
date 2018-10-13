@@ -38,13 +38,13 @@
             this.isRadianIn = new System.Windows.Forms.RadioButton();
             this.isGradIn = new System.Windows.Forms.RadioButton();
             this.FunctionList = new System.Windows.Forms.ListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.inputPanel = new System.Windows.Forms.Panel();
+            this.outputPanel = new System.Windows.Forms.Panel();
             this.isDegreeOut = new System.Windows.Forms.RadioButton();
             this.isRadianOut = new System.Windows.Forms.RadioButton();
             this.isGradOut = new System.Windows.Forms.RadioButton();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.inputPanel.SuspendLayout();
+            this.outputPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // InputTxBx
@@ -102,7 +102,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(274, 49);
+            this.label1.Location = new System.Drawing.Point(6, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(274, 18);
             this.label1.TabIndex = 5;
@@ -112,7 +112,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(274, 114);
+            this.label2.Location = new System.Drawing.Point(0, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(286, 18);
             this.label2.TabIndex = 6;
@@ -170,25 +170,28 @@
             this.FunctionList.Size = new System.Drawing.Size(243, 112);
             this.FunctionList.TabIndex = 13;
             // 
-            // panel1
+            // inputPanel
             // 
-            this.panel1.Controls.Add(this.isDegreeIn);
-            this.panel1.Controls.Add(this.isRadianIn);
-            this.panel1.Controls.Add(this.isGradIn);
-            this.panel1.Location = new System.Drawing.Point(277, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 30);
-            this.panel1.TabIndex = 14;
+            this.inputPanel.Controls.Add(this.isDegreeIn);
+            this.inputPanel.Controls.Add(this.isRadianIn);
+            this.inputPanel.Controls.Add(this.isGradIn);
+            this.inputPanel.Controls.Add(this.label1);
+            this.inputPanel.Location = new System.Drawing.Point(277, 46);
+            this.inputPanel.Name = "inputPanel";
+            this.inputPanel.Size = new System.Drawing.Size(283, 51);
+            this.inputPanel.TabIndex = 14;
             // 
-            // panel2
+            // outputPanel
             // 
-            this.panel2.Controls.Add(this.isDegreeOut);
-            this.panel2.Controls.Add(this.isRadianOut);
-            this.panel2.Controls.Add(this.isGradOut);
-            this.panel2.Location = new System.Drawing.Point(277, 135);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(283, 33);
-            this.panel2.TabIndex = 15;
+            this.outputPanel.Controls.Add(this.isDegreeOut);
+            this.outputPanel.Controls.Add(this.isRadianOut);
+            this.outputPanel.Controls.Add(this.isGradOut);
+            this.outputPanel.Controls.Add(this.label2);
+            this.outputPanel.Location = new System.Drawing.Point(275, 49);
+            this.outputPanel.Name = "outputPanel";
+            this.outputPanel.Size = new System.Drawing.Size(285, 48);
+            this.outputPanel.TabIndex = 15;
+            this.outputPanel.Visible = false;
             // 
             // isDegreeOut
             // 
@@ -230,21 +233,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 236);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.outputPanel);
+            this.Controls.Add(this.inputPanel);
             this.Controls.Add(this.FunctionList);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.FunctionGroupCmBx);
             this.Controls.Add(this.CalculateBtn);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.InputTxBx);
             this.Name = "MainForm";
             this.Text = "Калькулятор тригонометрических функций";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.inputPanel.ResumeLayout(false);
+            this.inputPanel.PerformLayout();
+            this.outputPanel.ResumeLayout(false);
+            this.outputPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,8 +264,8 @@
         private System.Windows.Forms.RadioButton isRadianIn;
         private System.Windows.Forms.RadioButton isGradIn;
         private System.Windows.Forms.ListBox FunctionList;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel inputPanel;
+        private System.Windows.Forms.Panel outputPanel;
         private System.Windows.Forms.RadioButton isDegreeOut;
         private System.Windows.Forms.RadioButton isRadianOut;
         private System.Windows.Forms.RadioButton isGradOut;
