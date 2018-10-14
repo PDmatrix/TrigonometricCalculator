@@ -1,6 +1,6 @@
 ﻿namespace Calculator.Tests.TestValues
 {
-    public static class CosinusRadians
+    public static class Cosinus
     {
         public static object[] TestSource =
         {

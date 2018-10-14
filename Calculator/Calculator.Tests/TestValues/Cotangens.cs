@@ -1,6 +1,6 @@
 ﻿namespace Calculator.Tests.TestValues
 {
-    public static class CotangensRadians
+    public static class Cotangens
     {
         public static object[] TestSource =
         {

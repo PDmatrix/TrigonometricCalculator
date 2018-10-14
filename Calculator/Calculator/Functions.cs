@@ -7,7 +7,10 @@ namespace Calculator
     {
         private static void Error()
         {
-            MessageBox.Show(@"Введенно некоректное значение", @"Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(@"Введенно некоректное значение", 
+                @"Ошибка", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Error);
         }
 
         private static bool InRange(this double value, double first, double second)
@@ -32,89 +35,71 @@ namespace Calculator
 
         public static double Tangens(double x)
         {
-            if (Math.Cos(x).IsApproximatelyEqualTo(0, 0.0001))
-            {
-                Error();
-                return double.NaN;
-            }
+            if (!Math.Cos(x).IsApproximatelyEqualTo(0, 0.0001))
+                return Math.Tan(x);
 
-            return Math.Tan(x);
+            Error();
+            return double.NaN;
+
         }
 
         public static double Cotangens(double x)
         {
-            if (Math.Tan(x).IsApproximatelyEqualTo(0, 0.0001))
-            {
-                Error();
-                return double.NaN;
-            }
+            if (!Math.Tan(x).IsApproximatelyEqualTo(0, 0.0001))
+                return 1 / Math.Tan(x);
 
-            return 1 / Math.Tan(x);
+            Error();
+            return double.NaN;
+
         }
 
         public static double Secans(double x)
         {
-            if (Math.Cos(x).IsApproximatelyEqualTo(0, 0.0001))
-            {
-                Error();
-                return double.NaN;
-            }
+            if (!Math.Cos(x).IsApproximatelyEqualTo(0, 0.0001))
+                return 1 / Math.Cos(x);
 
-            return 1 / Math.Cos(x);
+            Error();
+            return double.NaN;
+
         }
 
         public static double Cosecans(double x)
         {
-            if (Math.Sin(x).IsApproximatelyEqualTo(0, 0.0001))
-            {
-                Error();
-                return double.NaN;
-            }
+            if (!Math.Sin(x).IsApproximatelyEqualTo(0, 0.0001))
+                return 1 / Math.Sin(x);
 
-            return 1 / Math.Sin(x);
+            Error();
+            return double.NaN;
+
         }
 
         public static double Arcsinus(double x)
         {
-            if (!x.InRangeEq(-1, 1))
-            {
-                Error();
-                return double.NaN;
-            }
+            if (x.InRangeEq(-1, 1))
+                return Math.Asin(x);
 
-            return Math.Asin(x);
+            Error();
+            return double.NaN;
+
         }
 
         public static double Arccosinus(double x)
         {
-            if (!x.InRangeEq(-1, 1))
-            {
-                Error();
-                return double.NaN;
-            }
+            if (x.InRangeEq(-1, 1))
+                return Math.Acos(x);
 
-            return Math.Acos(x);
+            Error();
+            return double.NaN;
+
         }
 
         public static double Arctangens(double x)
         {
-            /*if (!x.InRange(-(Math.PI / 2), Math.PI / 2))
-            {
-                Error();
-                return double.NaN;
-            }*/
-
             return Math.Atan(x);
         }
 
         public static double Arccotangens(double x)
         {
-            /*if (!x.InRange(0, Math.PI))
-            {
-                Error();
-                return double.NaN;
-            }*/
-
             return Math.PI / 2 - Arctangens(x);
         }
 
@@ -130,34 +115,32 @@ namespace Calculator
 
         public static double Tangensh(double x)
         {
-            if (Math.Cosh(x).IsApproximatelyEqualTo(0, 0.0001))
-            {
-                Error();
-                return double.NaN;
-            }
+            if (!Math.Cosh(x).IsApproximatelyEqualTo(0, 0.0001))
+                return Math.Tanh(x);
 
-            return Math.Tanh(x);
+            Error();
+            return double.NaN;
+
         }
 
         public static double Cotangensh(double x)
         {
-            if (Math.Tanh(x).IsApproximatelyEqualTo(0, 0.0001))
-            {
-                Error();
-                return double.NaN;
-            }
+            if (!Math.Tanh(x).IsApproximatelyEqualTo(0, 0.0001))
+                return 1 / Math.Tanh(x);
 
-            return 1 / Math.Tanh(x);
+            Error();
+            return double.NaN;
+
         }
 
         public static double Areasinus(double x)
         {
-            return Math.Log(x + Math.Sqrt(x * x + 1, 2));
+            return Math.Log(x + Math.Sqrt(x * x + 1));
         }
 
         public static double Areacosinus(double x)
         {
-            return Math.Log(x + Math.Sqrt(x * x - 1, 2));
+            return Math.Log(x + Math.Sqrt(x * x - 1));
         }
 
         public static double Areatangens(double x)

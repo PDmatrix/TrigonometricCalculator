@@ -1,6 +1,6 @@
 ﻿namespace Calculator.Tests.TestValues
 {
-    public static class TangensRadians
+    public static class Tangens
     {
         public static object[] TestSource =
         {

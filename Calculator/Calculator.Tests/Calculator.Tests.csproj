@@ -48,18 +48,24 @@
   <ItemGroup>
     <Compile Include="FunctionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestValues\CosecansDegrees.cs" />
-    <Compile Include="TestValues\CosecansRadians.cs" />
-    <Compile Include="TestValues\CosinusDegrees.cs" />
-    <Compile Include="TestValues\CosinusRadians.cs" />
-    <Compile Include="TestValues\CotangensDegrees.cs" />
-    <Compile Include="TestValues\CotangensRadians.cs" />
-    <Compile Include="TestValues\SecansDegrees.cs" />
-    <Compile Include="TestValues\SecansRadians.cs" />
-    <Compile Include="TestValues\SinusDegrees.cs" />
-    <Compile Include="TestValues\SinusRadians.cs" />
-    <Compile Include="TestValues\TangensDegrees.cs" />
-    <Compile Include="TestValues\TangensRadians.cs" />
+    <Compile Include="TestValues\Arccosinus.cs" />
+    <Compile Include="TestValues\Arccotangens.cs" />
+    <Compile Include="TestValues\Arcsinus.cs" />
+    <Compile Include="TestValues\Arctangens.cs" />
+    <Compile Include="TestValues\Areacosinus.cs" />
+    <Compile Include="TestValues\Areacotangens.cs" />
+    <Compile Include="TestValues\Areasinus.cs" />
+    <Compile Include="TestValues\Areatangens.cs" />
+    <Compile Include="TestValues\Cosecans.cs" />
+    <Compile Include="TestValues\Cosinush.cs" />
+    <Compile Include="TestValues\Cosinus.cs" />
+    <Compile Include="TestValues\Cotangensh.cs" />
+    <Compile Include="TestValues\Cotangens.cs" />
+    <Compile Include="TestValues\Secans.cs" />
+    <Compile Include="TestValues\Sinush.cs" />
+    <Compile Include="TestValues\Sinus.cs" />
+    <Compile Include="TestValues\Tangensh.cs" />
+    <Compile Include="TestValues\Tangens.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
