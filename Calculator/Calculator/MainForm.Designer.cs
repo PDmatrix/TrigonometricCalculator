@@ -242,7 +242,6 @@
             this.Controls.Add(this.InputTxBx);
             this.Name = "MainForm";
             this.Text = "Калькулятор тригонометрических функций";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.inputPanel.ResumeLayout(false);
             this.inputPanel.PerformLayout();
             this.outputPanel.ResumeLayout(false);

@@ -5,6 +5,7 @@ namespace Calculator
 {
     public static class Functions
     {
+        // Вспомогательная функция для вывода сообщения об ошибке
         private static void Error()
         {
             MessageBox.Show(@"Введенно некоректное значение", 
@@ -13,26 +14,31 @@ namespace Calculator
                 MessageBoxIcon.Error);
         }
 
+        // Вспомогательная функция для проверки значений
         private static bool InRange(this double value, double first, double second)
         {
             return first < value && value < second;
         }
 
+        // Вспомогательная функция для проверки значений
         private static bool InRangeEq(this double value, double first, double second)
         {
             return first <= value && value <= second;
         }
 
+        // Синус
         public static double Sinus(double x)
         {
             return Math.Sin(x);
         }
 
+        // Косинус
         public static double Cosinus(double x)
         {
             return Math.Cos(x);
         }
 
+        // Тангенс
         public static double Tangens(double x)
         {
             if (!Math.Cos(x).IsApproximatelyEqualTo(0, 0.0001))
@@ -43,6 +49,7 @@ namespace Calculator
 
         }
 
+        // Котангенс
         public static double Cotangens(double x)
         {
             if (!Math.Tan(x).IsApproximatelyEqualTo(0, 0.0001))
@@ -53,6 +60,7 @@ namespace Calculator
 
         }
 
+        // Секанс
         public static double Secans(double x)
         {
             if (!Math.Cos(x).IsApproximatelyEqualTo(0, 0.0001))
@@ -63,6 +71,7 @@ namespace Calculator
 
         }
 
+        // Косеканс
         public static double Cosecans(double x)
         {
             if (!Math.Sin(x).IsApproximatelyEqualTo(0, 0.0001))
@@ -73,6 +82,7 @@ namespace Calculator
 
         }
 
+        // Арксинус
         public static double Arcsinus(double x)
         {
             if (x.InRangeEq(-1, 1))
@@ -83,6 +93,7 @@ namespace Calculator
 
         }
 
+        // Арккосинус
         public static double Arccosinus(double x)
         {
             if (x.InRangeEq(-1, 1))
@@ -93,26 +104,31 @@ namespace Calculator
 
         }
 
+        // Арктангенс
         public static double Arctangens(double x)
         {
             return Math.Atan(x);
         }
 
+        // Арккотангенс
         public static double Arccotangens(double x)
         {
             return Math.PI / 2 - Arctangens(x);
         }
 
+        // Гиперболический синус
         public static double Sinush(double x)
         {
             return Math.Sinh(x);
         }
 
+        // Гиперболический косинус
         public static double Cosinush(double x)
         {
             return Math.Cosh(x);
         }
 
+        // Гиперболический тангенс
         public static double Tangensh(double x)
         {
             if (!Math.Cosh(x).IsApproximatelyEqualTo(0, 0.0001))
@@ -120,9 +136,9 @@ namespace Calculator
 
             Error();
             return double.NaN;
-
         }
 
+        // Гиперболический котангенс
         public static double Cotangensh(double x)
         {
             if (!Math.Tanh(x).IsApproximatelyEqualTo(0, 0.0001))
@@ -133,23 +149,39 @@ namespace Calculator
 
         }
 
+        // Ареасинус
         public static double Areasinus(double x)
         {
+            if (x * x + 1 < 0 || x + Math.Sqrt(x * x + 1) <= 0)
+                Error();
+
             return Math.Log(x + Math.Sqrt(x * x + 1));
         }
 
+        // Ареакосинус
         public static double Areacosinus(double x)
         {
+            if (x * x - 1 < 0 || x + Math.Sqrt(x * x - 1) <= 0)
+                Error();
+
             return Math.Log(x + Math.Sqrt(x * x - 1));
         }
 
+        // Ареатангенс
         public static double Areatangens(double x)
         {
+            if (x.IsApproximatelyEqualTo(1, 0.001) || (1 + x) / (1 - x) <= 0)
+                Error();
+
             return Math.Log((1 + x) / (1 - x)) / 2;
         }
 
+        // Ареакотангенс
         public static double Areacotangens(double x)
         {
+            if(x.IsApproximatelyEqualTo(1, 0.001) || (x + 1) / (x - 1) <= 0)
+                Error();
+
             return Math.Log((x + 1) / (x - 1)) / 2;
         }
     }
